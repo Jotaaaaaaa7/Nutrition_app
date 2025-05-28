@@ -196,6 +196,7 @@ def seccion_alimentos():
                             unidad = st.number_input("Peso por unidad (g)",
                                                     min_value=0.0,
                                                     value=0.0,
+                                                    step=1.0,
                                                     help="Peso aproximado de una unidad estándar en gramos (opcional)")
                         with col3:
                             mercado = st.text_input("Mercado", placeholder="Ej: Mercadona")
@@ -206,24 +207,30 @@ def seccion_alimentos():
                         col1, col2, col3, col4 = st.columns(4)
                         with col1:
                             calorias = st.number_input("🔥 Calorías",
-                                                      min_value=0.0,
-                                                      format="%.1f",
-                                                      help="Calorías por 100g del alimento")
+                                                       min_value=0.0,
+                                                       step=10.0,
+                                                       format="%.1f",
+                                                       help="Calorías por 100g del alimento")
+
                         with col2:
                             proteinas = st.number_input("🥩 Proteínas (g)",
-                                                       min_value=0.0,
-                                                       format="%.1f",
-                                                       help="Gramos de proteína por 100g")
+                                                        min_value=0.0,
+                                                        step=1.0,
+                                                        format="%.1f",
+                                                        help="Gramos de proteína por 100g")
+
                         with col3:
                             carbohidratos = st.number_input("🍚 Carbohidratos (g)",
-                                                           min_value=0.0,
-                                                           format="%.1f",
-                                                           help="Gramos de carbohidratos por 100g")
+                                                            min_value=0.0,
+                                                            step=1.0,
+                                                            format="%.1f",
+                                                            help="Gramos de carbohidratos por 100g")
                         with col4:
                             grasas = st.number_input("🧈 Grasas (g)",
-                                                    min_value=0.0,
-                                                    format="%.1f",
-                                                    help="Gramos de grasa por 100g")
+                                                     min_value=0.0,
+                                                     step=1.0,
+                                                     format="%.1f",
+                                                     help="Gramos de grasa por 100g")
 
                         # Botones del formulario
                         col_submit, col_cancel = st.columns([1, 1])
@@ -289,6 +296,7 @@ def seccion_alimentos():
                             unidad = st.number_input("Peso por unidad (g)",
                                                    min_value=0.0,
                                                    value=unidad_valor,
+                                                   step=1.0,
                                                    help="Peso aproximado de una unidad estándar en gramos (opcional)")
                         with col3:
                             mercado = st.text_input("Mercado", value=alimento.get('market', ""), placeholder="Ej: Mercadona")
@@ -299,24 +307,28 @@ def seccion_alimentos():
                         col1, col2, col3, col4 = st.columns(4)
                         with col1:
                             calorias = st.number_input("🔥 Calorías",
-                                                      min_value=0.0,
-                                                      value=alimento['nutrients']['kcal'],
-                                                      format="%.1f")
+                                                       min_value=0.0,
+                                                       step=10.0,
+                                                       value=alimento['nutrients']['kcal'],
+                                                       format="%.1f")
                         with col2:
                             proteinas = st.number_input("🥩 Proteínas (g)",
-                                                       min_value=0.0,
-                                                       value=alimento['nutrients']['protein_g'],
-                                                       format="%.1f")
+                                                        min_value=0.0,
+                                                        step=1.0,
+                                                        value=alimento['nutrients']['protein_g'],
+                                                        format="%.1f")
                         with col3:
                             carbohidratos = st.number_input("🍚 Carbohidratos (g)",
-                                                           min_value=0.0,
-                                                           value=alimento['nutrients']['carbs_g'],
-                                                           format="%.1f")
+                                                            min_value=0.0,
+                                                            step=1.0,
+                                                            value=alimento['nutrients']['carbs_g'],
+                                                            format="%.1f")
                         with col4:
                             grasas = st.number_input("🧈 Grasas (g)",
-                                                    min_value=0.0,
-                                                    value=alimento['nutrients']['fat_g'],
-                                                    format="%.1f")
+                                                     min_value=0.0,
+                                                     step=1.0,
+                                                     value=alimento['nutrients']['fat_g'],
+                                                     format="%.1f")
 
                         # Botones del formulario
                         col_submit, col_cancel = st.columns([1, 1])
